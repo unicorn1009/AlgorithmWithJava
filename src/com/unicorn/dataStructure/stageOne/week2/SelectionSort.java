@@ -1,4 +1,4 @@
-package com.unicorn.StageOne.Week2;
+package com.unicorn.dataStructure.stageOne.week2;
 
 import com.unicorn.common.ArrayGenerate;
 import com.unicorn.common.SortingHelper;
