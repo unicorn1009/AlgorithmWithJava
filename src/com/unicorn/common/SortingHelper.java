@@ -1,6 +1,7 @@
 package com.unicorn.common;
 
-import com.unicorn.StageOne.Week2.SelectionSort;
+
+import com.unicorn.dataStructure.stageOne.week2.SelectionSort;
 
 public class SortingHelper {
     private SortingHelper(){}
