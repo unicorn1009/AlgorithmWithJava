@@ -1,5 +1,6 @@
 package com.unicorn.dataStructure.stageOne.week2;
 
+import com.unicorn.common.Array;
 import com.unicorn.common.ArrayGenerate;
 import com.unicorn.common.SortingHelper;
 
@@ -14,6 +15,7 @@ public class InsertionSort {
         // 数组有序时，插入排序复杂度为O(n), 无序时为O(n^2)
         SortingHelper.sortTest("InsertionSort",arrayRandom);
         SortingHelper.sortTest("InsertionSort",arrayOrdered);
+
 
     }
 
