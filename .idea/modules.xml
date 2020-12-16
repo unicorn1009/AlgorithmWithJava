@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AlgorithmWithJava.iml" filepath="$PROJECT_DIR$/AlgorithmWithJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AlgorithmWithJava.iml" filepath="$PROJECT_DIR$/.idea/AlgorithmWithJava.iml" />
     </modules>
   </component>
 </project>

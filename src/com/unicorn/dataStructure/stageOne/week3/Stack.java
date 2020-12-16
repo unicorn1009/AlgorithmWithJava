@@ -1,4 +1,4 @@
-package com.unicorn.common;
+package com.unicorn.dataStructure.stageOne.week3;
 
 public interface Stack<E> {
 

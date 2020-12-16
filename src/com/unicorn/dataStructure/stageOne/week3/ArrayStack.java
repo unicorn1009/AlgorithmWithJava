@@ -1,4 +1,6 @@
-package com.unicorn.common;
+package com.unicorn.dataStructure.stageOne.week3;
+
+import com.unicorn.common.Array;
 
 public class ArrayStack<E> implements Stack<E> {
 
@@ -8,7 +10,7 @@ public class ArrayStack<E> implements Stack<E> {
         array = new Array<>(capacity);
     }
 
-    public ArrayStack(){
+    public ArrayStack() {
         array = new Array<>();
     }
 
