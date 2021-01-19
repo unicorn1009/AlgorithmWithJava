@@ -1,6 +1,7 @@
 package com.unicorn.Leetcode;
 
-import com.unicorn.common.ArrayStack;
+
+import com.unicorn.dataStructure.stageOne.week3.ArrayStack;
 
 import java.util.Dictionary;
 import java.util.HashMap;
