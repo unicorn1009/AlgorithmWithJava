@@ -1,5 +1,7 @@
 package com.unicorn.javaStudy;
 
+import java.util.Random;
+
 /**
  * <p>
  *      三个窗口卖100张票: 使用实现Runnable接口的方式
@@ -36,9 +38,12 @@ class Window1 implements Runnable{
 
     @Override
     public void run() {
+        Random random = new Random();
         while (true){
             if (ticket>0){
-                System.out.println(Thread.currentThread().getName()+" 卖出一张票, 剩余 "+(--ticket)+" 张");
+                int subTicket = random.nextInt(3)+1;
+                ticket -= subTicket;
+                System.out.println(Thread.currentThread().getName()+" 卖出"+subTicket+"张票, 剩余 "+ticket+" 张");
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
