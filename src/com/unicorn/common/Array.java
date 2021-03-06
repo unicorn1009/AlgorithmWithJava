@@ -1,7 +1,5 @@
 package com.unicorn.common;
 
-import java.util.Arrays;
-
 public class Array<E> {
 
     private E[] data;

@@ -1,6 +1,4 @@
-package com.unicorn.javaStudy;
-
-import java.util.Random;
+package com.unicorn.javaStudy.thread;
 
 /**
  * <p>

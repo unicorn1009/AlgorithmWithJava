@@ -7,8 +7,7 @@ import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Stack;
 
-public class Leetcode20 {
-    private Leetcode20(){}
+public class Solution0020 {
 
     public static void main(String[] args) {
         String s = "{[]}";

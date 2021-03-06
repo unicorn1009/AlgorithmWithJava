@@ -1,4 +1,6 @@
-package com.unicorn.javaStudy;
+package com.unicorn.javaStudy.thread;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -32,7 +34,9 @@ public class ThreadTest {
                 for (int i = 0; i < 100; i++) {
                     if (i%2 != 0) {
                         try {
-                            sleep(200);
+                            // 推荐使用TimeUnit的sleep代替Thread的sleep, 可读性更强
+//                            sleep(200);
+                            TimeUnit.MILLISECONDS.sleep(200);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
