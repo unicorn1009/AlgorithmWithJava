@@ -16,8 +16,8 @@ public class Solution0053 {
 
     }
 
-    // 动态规划
-    public static int maxSubArray(int[] nums) {
+    // 法二 : 动态规划
+    public static int maxSubArray1(int[] nums) {
         // nums[i]记为以i结尾的子序列的最大和
         // 因此, 已知nums[i-1]的情况下, 判断nums[i-1]是否小于0, 若是, 则丢弃
         int maxSum = nums[0];
@@ -28,6 +28,18 @@ public class Solution0053 {
             if (nums[i] > maxSum){
                 maxSum = nums[i];
             }
+        }
+        return maxSum;
+    }
+
+
+    // 法一 : 贪心法
+    public static int maxSubArray(int[] nums) {
+        int curSum = nums[0], maxSum = nums[0];
+        // 如果之前和小于0则丢弃
+        for (int i = 1; i < nums.length; i++) {
+            curSum = Math.max(curSum + nums[i], nums[i]);
+            maxSum = Math.max(maxSum, curSum);
         }
         return maxSum;
     }
