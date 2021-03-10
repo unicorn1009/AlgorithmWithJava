@@ -10,19 +10,19 @@ package com.unicorn.jzoffer;
  */
 public class JZ015 {
     public static void main(String[] args) {
+//        11111111111111111111111111111101
         System.out.println(hammingWeight(-3));
-        System.out.println(-3%2);
     }
 
     // TODO 剑指 Offer 15. 二进制中1的个数
     public static int hammingWeight(int n) {
-        int ans = 0;
-        while (Math.abs(n)>0){
-            if (n%2 == 1 || n%2 == -1){
-                ans++;
+        int count = 0;
+        for (int i = 0; i < 32; i++) {
+            if ((n & 1)  == 1){
+                count++;
             }
-            n /= 2;
+            n >>>= 1;
         }
-        return ans;
+        return count;
     }
 }

@@ -9,7 +9,7 @@ package com.unicorn.jzoffer;
  *
  * @author Unicorn
  */
-public class JZ053 {
+public class JZ053_1 {
 
     // 方法二 : 二分查找, 一看到数组有序, 首先应该想到二分法 O(logn)
     public int search2(int[] nums, int target) {
