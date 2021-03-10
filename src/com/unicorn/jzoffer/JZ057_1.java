@@ -12,7 +12,7 @@ import java.util.Set;
  *
  * @author Unicorn
  */
-public class JZ057 {
+public class JZ057_1 {
 
     // 法二 : 利用数组有序特性, 使用双指针
     public int[] twoSum2(int[] nums, int target) {

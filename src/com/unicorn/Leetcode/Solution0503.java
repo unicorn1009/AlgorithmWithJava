@@ -18,13 +18,27 @@ public class Solution0503 {
 
     // 法二 : 单调栈
     public static int[] nextGreaterElements2(int[] nums) {
-        int i = 0;
         Stack<Integer> stack = new Stack<>();
-        while (i < nums.length * 2){
-            i = i % nums.length;
-
+        int len = nums.length;
+        int[] ans = new int[len];
+        for (int i = 0; i < len*2-1; i++) {
+            if (i < len){
+                while (!stack.isEmpty() && nums[stack.peek()] < nums[i]){
+                    ans[stack.pop()] = nums[i];
+                }
+                stack.push(i);
+            }else {
+                int j = i % len;
+                while (!stack.isEmpty() && nums[stack.peek()] < nums[j]){
+                    ans[stack.pop()] = nums[j];
+                }
+            }
         }
-        return null;
+        while (!stack.isEmpty()){
+            ans[stack.pop()] = -1;
+        }
+
+        return ans;
     }
 
 

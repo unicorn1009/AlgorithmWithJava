@@ -12,10 +12,9 @@ import java.util.Map;
  */
 public class Solution0136 {
     public static void main(String[] args) {
-        int[] arr = {2,2,1};
+        int[] arr = {2,5,2};
         Solution0136 aaa = new Solution0136();
-        aaa.singleNumber(arr);
-        System.out.println(aaa.result);
+        System.out.println(aaa.singleNumber1(arr));
     }
 
     public int result;
