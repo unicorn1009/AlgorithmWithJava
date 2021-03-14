@@ -14,10 +14,14 @@ import java.lang.reflect.Proxy;
  */
 public class DynamicProxyTest {
     public static void main(String[] args) {
+        // 1. 创建被代理类
         TeacherDao1 teacherDao = new TeacherDao1();
+        // 2. 创建代理工程, 传入被代理类
         ProxyFactory proxyFactory = new ProxyFactory(teacherDao);
+        // 3. 从代理工厂中获取代理对象实例, 强转为被代理类
         ITeacherDao1 proxyInstance = (ITeacherDao1)proxyFactory.getProxyInstance();
-        proxyFactory.teach();
+        // 4. 通过代理类调用方法
+        proxyInstance.teach();
     }
 }
 
