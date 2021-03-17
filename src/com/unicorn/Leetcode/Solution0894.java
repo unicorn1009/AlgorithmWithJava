@@ -23,9 +23,15 @@ public class Solution0894 {
     }
 
     private void dfs(TreeNode node, int n, int count, List<TreeNode> ans, TreeNode head) {
-        if (n == count) {
+        if (count == n-2) {
+            TreeNode left = new TreeNode(0);
+            TreeNode right = new TreeNode(0);
+            node.left = left;
+            node.right = right;
             TreeNode newRoot = cloneTree(head);
             ans.add(newRoot);
+            node.left = null;
+            node.right = null;
             return;
         }
         // 尝试对node建立两个孩子节点
@@ -33,11 +39,9 @@ public class Solution0894 {
         TreeNode right = new TreeNode(0);
         node.left = left;
         node.right = right;
-        count += 2;
-        dfs(node.left, n, count, ans, head);
-        node.left = null;
-        dfs(node.right, n, count, ans, head);
-        node.right = null;
+
+        dfs(node.left, n, count+2, ans, head);
+        dfs(node.right, n, count+2, ans, head);
     }
 
     public TreeNode cloneTree(TreeNode root){
