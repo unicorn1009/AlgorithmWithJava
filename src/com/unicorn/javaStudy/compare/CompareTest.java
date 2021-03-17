@@ -1,6 +1,5 @@
 package com.unicorn.javaStudy.compare;
 
-import com.sun.corba.se.impl.io.TypeMismatchException;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

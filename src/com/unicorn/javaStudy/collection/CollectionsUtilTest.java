@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * <p>
+ *
  *     Collections 工具类 : 用于操作 Collection(List Set) 和 Map
  *
  *     |--- reverse(List) : 反转List的顺序
@@ -22,6 +23,8 @@ import java.util.List;
  *
  *     |--- synchronizedXxx() : 返回线程安全的集合版本
  *
+ *      List.of() 是java9新特性
+ *     Arrays.asList返回可变的list，而List.of返回的是不可变的list
  *
  * </p>
  * Created on 2021-01-31.

@@ -27,6 +27,25 @@ public class JZ024 {
 
 
     }
+
+    // 法二: 三指针
+    public static ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode pre = null;
+        ListNode cur = head;
+        ListNode back = null;
+        while (cur.next != null){
+            back = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = back;
+        }
+        cur.next = pre;
+        return cur;
+    }
+
+
+    // 法一 : 栈
     public static ListNode reverseList(ListNode head) {
         if (head == null) return null;
         Stack<ListNode> stack = new Stack<>();
