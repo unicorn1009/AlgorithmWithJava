@@ -10,7 +10,7 @@ import java.util.Queue;
 /**
  * <p>
  * </p>
- * Created on 2021/3/17 0017
+ * Created on 2021/3/17
  *
  * @author Unicorn
  */
@@ -21,6 +21,15 @@ public class TreeUtil {
         levelOrder(root);
     }
 
+    public static TreeNode cloneTree(TreeNode root){
+        TreeNode node=null;
+        if(root==null) return null;
+        node=new TreeNode(root.val);
+        node.left=cloneTree(root.left);
+        node.right=cloneTree(root.right);
+
+        return node;
+    }
 
     /**
      * 根据给定列表, 生成一颗完全二叉树

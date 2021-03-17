@@ -7,13 +7,15 @@ import java.util.Set;
 /**
  * <p>
  * </p>
- * Created on 2021/3/17 0017
+ * Created on 2021/3/17
  *
  * @author Unicorn
  */
 public class JZ050 {
     public static void main(String[] args) {
-        System.out.println(firstUniqChar1("aabb"));
+//        System.out.println(firstUniqChar1("aabb"));
+        System.out.println(Double.parseDouble("-5.3E-2"));
+        System.out.println(Double.parseDouble("0123"));
     }
 
     // 更快
