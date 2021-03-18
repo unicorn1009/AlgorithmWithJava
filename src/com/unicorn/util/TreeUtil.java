@@ -16,9 +16,7 @@ import java.util.Queue;
  */
 public class TreeUtil {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        genCompleteBTree(root, List.of(2,3,4,5));
-        levelOrder(root);
+
     }
 
     public static TreeNode cloneTree(TreeNode root){
