@@ -10,8 +10,38 @@ package com.unicorn.jzoffer;
  * @author Unicorn
  */
 public class JZ056_1 {
+    public static void main(String[] args) {
+        singleNumbers(new int[]{1,2,10,4,1,4,3,3,2,6});
+    }
 
-    public int[] singleNumbers(int[] nums) {
-        return nums;
+    // 分组异或 from LeetCode
+    public static int[] singleNumbers(int[] nums) {
+        int[] ans = new int[2];
+        int temp = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            temp ^= nums[i];
+        }
+        int a = temp;
+        int count = 0;
+        while (true){
+            if ((a&1) == 1){
+                break;
+            }
+            a>>=1;
+            count++;
+        }
+
+        int ans1 = 0, ans2 = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if ((nums[i]>>>count & 1) == 1){
+                ans1 ^= nums[i];
+            }else {
+                ans2 ^= nums[i];
+            }
+        }
+        ans[0] = ans1;
+        ans[1] = ans2;
+
+        return ans;
     }
 }
