@@ -29,16 +29,55 @@ public class ArrayUtil {
     }
 
     /**
-     * 二维数组转字符串
+     * 打印二维数组
      */
-    public static String twoDiemArrayToString(int[][] arrs){
+    public static void printArray2D(Object[][] arrs){
         StringBuilder stringBuilder = new StringBuilder();
-        for (int[] arr : arrs) {
+        for (Object[] arr : arrs) {
             stringBuilder.append(Arrays.toString(arr));
             stringBuilder.append(',');
         }
         stringBuilder.deleteCharAt(stringBuilder.length()-1);
-        return stringBuilder.toString();
+        System.out.println(stringBuilder.toString());
+    }
+
+    /**
+     * 打印二维数组
+     */
+    public static void printArray2D(int[][] arrs){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int[] arr : arrs) {
+            stringBuilder.append(Arrays.toString(arr));
+            stringBuilder.append(", ");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length()-2);
+        System.out.println(stringBuilder.toString());
+    }
+
+    /**
+     * 打印一维数组
+     */
+    public static void printArray1D(int[] arr){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int num : arr) {
+            stringBuilder.append(num);
+            stringBuilder.append(", ");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length()-2);
+        System.out.println(stringBuilder.toString());
+    }
+
+    /**
+     * 打印一维数组
+     */
+    public static void printArray1D(Object[] arr){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Object obj : arr) {
+            stringBuilder.append(obj);
+            stringBuilder.append(", ");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length()-2);
+        System.out.println(stringBuilder.toString());
     }
 
 }

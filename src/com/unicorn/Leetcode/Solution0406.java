@@ -17,7 +17,7 @@ public class Solution0406 {
     public static void main(String[] args) {
         int[][] arr = {{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
         int[][] ret = reconstructQueue(arr);
-        System.out.println(ArrayUtil.twoDiemArrayToString(ret));
+        ArrayUtil.printArray2D(ret);
     }
 
     public static int[][] reconstructQueue(int[][] people) {
