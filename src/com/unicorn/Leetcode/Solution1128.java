@@ -2,6 +2,7 @@ package com.unicorn.Leetcode;
 
 /**
  * <p>
+ *     1128. 等价多米诺骨牌对的数量
  * </p>
  * Created on 2021-01-26.
  *

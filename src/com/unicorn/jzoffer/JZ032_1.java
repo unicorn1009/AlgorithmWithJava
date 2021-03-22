@@ -1,7 +1,7 @@
 package com.unicorn.jzoffer;
 
 import com.unicorn.Leetcode.TreeNode;
-import com.unicorn.util.ArrayHelper;
+import com.unicorn.util.ArrayUtil;
 
 import java.util.*;
 
@@ -33,6 +33,6 @@ public class JZ032_1 {
                 queue.addLast(outNode.right);
             }
         }
-        return ArrayHelper.ListToIntArray(ans);
+        return ArrayUtil.ListToIntArray(ans);
     }
 }

@@ -1,9 +1,17 @@
 package com.unicorn.Leetcode;
 
 
-import com.unicorn.dataStructure.stageOne.week3.ArrayStack;
 
-import java.util.Dictionary;
+/**
+ * <p>
+ *     20. 有效的括号
+ *     给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+ * </p>
+ * Created on 2021-01-30.
+ *
+ * @author Unicorn
+ */
+import com.unicorn.dataStructure.stageOne.week3.ArrayStack;
 import java.util.HashMap;
 import java.util.Stack;
 
