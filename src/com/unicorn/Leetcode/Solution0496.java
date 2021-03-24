@@ -1,5 +1,10 @@
 package com.unicorn.Leetcode;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <p>
  *     496. 下一个更大元素 I
@@ -10,10 +15,19 @@ package com.unicorn.Leetcode;
  */
 public class Solution0496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        int[] ans = new int[nums1.length];
-        for (int i = 0; i < nums1.length; i++) {
-            // TODO
+        Map<Integer, Integer> map = new HashMap<>();
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = nums2.length-1; i >= 0; i--) {
+            while (!stack.isEmpty() && stack.peekFirst() <= nums2[i]){
+                stack.removeFirst();
+            }
+            int v = stack.isEmpty() ? -1 : stack.peekFirst();
+            map.put(nums2[i], v);
+            stack.addFirst(nums2[i]);
         }
-        return null;
+        for (int i = 0; i < nums1.length; i++) {
+            nums1[i] = map.get(nums1[i]);
+        }
+        return nums1;
     }
 }

@@ -18,6 +18,7 @@ public class StringTest {
     private String name;
 
     public static void main(String[] args) {
+
         String s1 = "abc"; // 字面量的定义方式
         String s2 = "abc"; // 此时s2和s1的地址实际上是一样的, 这是因为通过字面量的方式定义的字符串存储在字符串常量池中, 池中不会存储两个相同的常量
         System.out.println(s1 == s2); // true

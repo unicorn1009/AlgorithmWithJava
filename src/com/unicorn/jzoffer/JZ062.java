@@ -15,11 +15,11 @@ import java.util.LinkedList;
  */
 public class JZ062 {
     public static void main(String[] args) {
-        System.out.println(lastRemaining1(100 ,238));
+        System.out.println(lastRemaining2(100 ,238));
     }
 
     public static int lastRemaining2(int n, int m) {
-        ArrayList<Integer> list = new ArrayList<>(n);
+        LinkedList<Integer> list = new LinkedList<Integer>();
         for (int i = 0; i < n; i++) {
             list.add(i);
         }
