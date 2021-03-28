@@ -1,30 +1,31 @@
 package com.unicorn.Leetcode;
 
-import java.math.BigInteger;
-
 /**
  * <p>
  *     96. 不同的二叉搜索树
  * </p>
- * Created on 2021/03/24 09:17
  *
- * @author Unicorn
+ * @author unicorn
+ * @create 2021-03-23 10:00 下午
  */
 public class Solution0096 {
     public static void main(String[] args) {
-        Solution0096 solution0096 = new Solution0096();
-        for (int i = 0; i < 19; i++) {
-            System.out.println(solution0096.numTrees(i));
-        }
-
+        System.out.println(new Solution0096().numTrees(6));
     }
     public int numTrees(int n) {
-        // 提示：我们在这里需要用 long 类型防止计算过程中的溢出
-        long C = 1;
-        for (int i = 0; i < n; ++i) {
-            C = C * 2 * (2 * i + 1) / (i + 2);
+        int[] dp = new int[n+1];
+        dp[0] = 1;
+        dp[1] = 1;
+        dp[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            int x = 0;
+            for (int j = 0; j < i ; j++) {
+                x += (dp[j] * dp[i-j-1]);
+            }
+            dp[i] = x;
         }
-        return (int) C;
+        return dp[n];
     }
+
 
 }

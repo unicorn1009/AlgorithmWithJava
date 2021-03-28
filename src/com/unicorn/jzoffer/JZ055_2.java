@@ -13,15 +13,21 @@ import com.unicorn.Leetcode.TreeNode;
  */
 public class JZ055_2 {
     public static void main(String[] args) {
-        String str = "abc";
-        Character a = 'a';
-        Character b = new Character('a');
-//        System.out.println(a.equals(b));    // T
-        System.out.println(a==b);   // F
-        System.out.println(a==str.charAt(0));   // T
-        System.out.println(b==str.charAt(0));   // T
+        System.out.println(new JZ055_2().isBalanced(null));
     }
     public boolean isBalanced(TreeNode root) {
-        return false;
+        int i = treeHeight(root);
+        return i != -1;
+
+    }
+
+    private int treeHeight(TreeNode node){
+        if (node == null) return 0;
+
+        int leftHeight = treeHeight(node.left);
+        if (leftHeight == -1) return -1;
+        int rightHeight = treeHeight(node.right);
+        if (rightHeight == -1) return -1;
+        return Math.abs(leftHeight-rightHeight)<=1 ? Math.max(leftHeight, rightHeight)+1 : -1;
     }
 }
