@@ -1,9 +1,12 @@
 package com.unicorn.Leetcode;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * <p>
+ *     912. 排序数组
+ *     手撕快排
  * </p>
  * Created on 2021/04/03 16:46
  *
@@ -11,7 +14,7 @@ import java.util.Arrays;
  */
 public class Solution0912 {
     public static void main(String[] args) {
-        int[] arr = new int[]{5,1,1,2,0,0,4,6,11,44,2,45,12,45,11,4,5,7,8,2,22,41,44};
+        int[] arr = new int[]{5,1,0,6,11,44,45,12,4,7,8,2,22,41};
         int[] ans = new Solution0912().sortArray(arr);
         System.out.println(Arrays.toString(ans));
     }
@@ -21,27 +24,30 @@ public class Solution0912 {
         return nums;
     }
 
+    // 快排3.0
     private void sort(int[] arr, int left, int right){
         if (left >= right) return;
-        int partition = partition(arr, left, right);
-        sort(arr, left, partition-1);
-        sort(arr, partition+1, right);
+        swap(arr, left + (int) (Math.random()*(right-left+1)), right);
+        int[] partition = partition(arr, left, right);
+        sort(arr, left, partition[0]-1);
+        sort(arr, partition[1]+1, right);
     }
 
-    private int partition(int[] arr, int left, int right){
-        int pivot = arr[left];
-        int i = left+1, j = right;
-        while (i < j){
-            while (i < j && arr[i] < pivot)
-                i++;
-            while (i < j && arr[j] > pivot)
-                j--;
-
-            swap(arr, i, j);
-            i++;j--;
+    private int[] partition(int[] arr, int left, int right){
+        int pivot = arr[right];
+        int i = left-1, j = right;
+        int k = left;
+        while (k < j){
+            if (arr[k] < pivot){
+                swap(arr, ++i, k++);
+            }else if (arr[k] > pivot){
+                swap(arr, k, --j);
+            }else {
+                k++;
+            }
         }
-        swap(arr, left, j);
-        return j;
+        swap(arr, j, right);
+        return new int[]{i+1, j};
     }
 
     private void swap(int[] arr, int i, int j){

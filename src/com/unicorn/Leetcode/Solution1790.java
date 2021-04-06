@@ -1,6 +1,14 @@
 package com.unicorn.Leetcode;
+/**
+ * <p>
+ *     1790. 仅执行一次字符串交换能否使两个字符串相等
+ * </p>
+ * Created on 2021/04/06 09:53
+ *
+ * @author Unicorn
+ */
 
-public class Solution5701 {
+public class Solution1790 {
     public static void main(String[] args) {
         String s1 = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkyoooooooooooooooooooooooooooooooooooooooooooooooo";
         String s2 = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkfoooooooooooooooooooooooooooooooooooooooooooooooo";

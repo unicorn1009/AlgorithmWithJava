@@ -11,7 +11,7 @@ import java.util.Random;
  * <p>
  *     快速排序
  *     时间复杂度 : 最坏会退化到O(n^2) 但几乎不可能, 期望复杂度O(nlogn)
- *     空间复杂度 : O(1)
+ *     空间复杂度 : O(logn) logn是递归栈的深度
  * </p>
  * Created on 2021/2/24.
  *
