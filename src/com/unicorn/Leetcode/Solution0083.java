@@ -11,7 +11,7 @@ import com.unicorn.util.ListNodeUtil;
  */
 public class Solution0083 {
     public static void main(String[] args) {
-        ListNode node = ListNodeUtil.genListNodeByList(new int[]{1, 1, 2, 3, 3});
+        ListNode node = ListNodeUtil.GenListNodeByList(new int[]{1, 1, 2, 3, 3});
         Solution0083 solution = new Solution0083();
         System.out.println(solution.deleteDuplicates(node));
 
