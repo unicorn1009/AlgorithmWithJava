@@ -1,6 +1,8 @@
 package com.unicorn;
 
 
+import com.unicorn.Leetcode.TreeNode;
+import com.unicorn.util.TreeUtil;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -12,6 +14,8 @@ import org.junit.jupiter.api.Test;
  */
 public class CodeTest {
     public static void main(String[] args) {
+        TreeNode tree = TreeUtil.getTree(new Integer[]{1, 2, 3, 4, 5, null, 7, 8});
+        TreeUtil.showTree(tree);
     }
 
 

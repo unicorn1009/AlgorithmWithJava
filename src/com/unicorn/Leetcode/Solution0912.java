@@ -39,9 +39,12 @@ public class Solution0912 {
         int k = left;
         while (k < j){
             if (arr[k] < pivot){
-                swap(arr, ++i, k++);
+                i++;
+                swap(arr, i, k);
+                k++;
             }else if (arr[k] > pivot){
-                swap(arr, k, --j);
+                j--;
+                swap(arr, k, j);
             }else {
                 k++;
             }

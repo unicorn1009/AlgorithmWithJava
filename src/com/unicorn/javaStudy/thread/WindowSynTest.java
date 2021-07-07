@@ -51,7 +51,6 @@ class Window2 implements Runnable{
                         e.printStackTrace();
                     }
 
-
                     System.out.println(Thread.currentThread().getName() + " 卖出"+subTicket+"张票, 剩余 " + (ticket) + " 张");
 
                 } else if (ticket > 0) {
