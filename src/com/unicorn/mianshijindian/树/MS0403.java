@@ -32,12 +32,17 @@ import java.util.List;
  */
 public class MS0403 {
     public static void main(String[] args) {
-        TreeNode tree = TreeUtil.getTree(new Integer[]{1, 2, 3, 4, 5, null, 7, 8});
+        TreeNode tree = TreeUtil.getTree(new Integer[]{null});
         TreeUtil.showTree(tree);
-//        listOfDepth(tree);
+        ListNode[] listNodes = listOfDepth(tree);
+        for (ListNode listNode : listNodes) {
+            System.out.println(listNode);
+        }
     }
 
-    public static List<ListNode> listOfDepth(TreeNode tree) {
+    public static ListNode[] listOfDepth(TreeNode tree) {
+        if (tree == null)
+            return new ListNode[0];
         // 思路，一行出完队,则统计下一行的个数(队列长度)
         List<ListNode> ans = new ArrayList<>();
         Deque<TreeNode> queue = new ArrayDeque<>();
@@ -63,7 +68,8 @@ public class MS0403 {
                 n = queue.size();
             }
         }
-        return ans;
+
+        return ans.toArray(new ListNode[0]);
     }
 
 }
