@@ -19,6 +19,11 @@ public class TreeUtil {
 
     }
 
+    /**
+     * 克隆一棵树
+     * @param root
+     * @return
+     */
     public static TreeNode cloneTree(TreeNode root){
         TreeNode node=null;
         if(root==null) return null;
@@ -173,6 +178,10 @@ public class TreeUtil {
     }
 
 
+    /**
+     * 可视化一棵树
+     * @param root
+     */
     public static void showTree(TreeNode root) {
         if (root == null) System.out.println("EMPTY!");
         // 得到树的深度
@@ -208,6 +217,11 @@ public class TreeUtil {
         }
     }
 
+    /**
+     *  按照给定数组序列创建一棵树,数组可包含null
+     * @param a
+     * @return
+     */
     public static TreeNode getTree(Integer[] a){
         int i=1;
         TreeNode root = new TreeNode(a[0]);  // 根节点

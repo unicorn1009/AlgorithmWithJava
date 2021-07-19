@@ -1,11 +1,35 @@
 package com.unicorn;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int group = sc.nextInt();
+        while (group-- > 0) {
+            int num = sc.nextInt();
+            Integer[] weights = new Integer[num];
+            int c = num;
+            while (c-- > 0) {
+                weights[num - c -1] = sc.nextInt();
+            }
+            int ans = minTime(weights);
+            System.out.println(ans);
+        }
+    }
 
+    public static int minTime(Integer[] weights) {
+        Arrays.sort(weights, Collections.reverseOrder());
+        int ans = 0;
+        for (int i = 0; i < weights.length; i+=2) {
+            ans += weights[i];
+        }
+        if (weights.length % 2 == 1)
+            ans+=weights[weights.length-1];
+        return ans;
     }
 
     @org.junit.jupiter.api.Test
@@ -18,17 +42,17 @@ public class Main {
         System.out.print(t.p1);
         System.out.print("-");
         System.out.println(t.p2);
-        if(n<=0) return;
+        if (n <= 0) return;
         t.p1 += 1;
         t.p2 += 'a';
-        m1(t, n-1);
+        m1(t, n - 1);
         System.out.print(t.p1);
         System.out.print("-");
         System.out.println(t.p2);
     }
 
     @org.junit.jupiter.api.Test
-    public void t1(){
+    public void t1() {
         System.out.println("hello");
         String[] arr = {"aaa", "bbb"};
         String[] clone = arr.clone();
@@ -40,7 +64,7 @@ public class Main {
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(clone));
         System.out.println("----------------");
-        Test[] arrTest = {new Test(1,"aaa"), new Test(2, "bbb")};
+        Test[] arrTest = {new Test(1, "aaa"), new Test(2, "bbb")};
         Test[] clone1 = arrTest.clone();
         System.out.println(arrTest == clone1);
         System.out.println(Arrays.toString(arrTest));
@@ -53,7 +77,7 @@ public class Main {
 
 }
 
-class Test{
+class Test {
     public Integer p1;
     public String p2;
 

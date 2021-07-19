@@ -2,7 +2,6 @@ package com.unicorn.Leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -42,6 +41,7 @@ public class Solution0090 {
         // 数量不够
         for (int i = index; i < nums.length; i++) {
             // 关键是下面这个if continue
+            // TODO 这个剪枝太妙了!
             if (i > index && nums[i] == nums[i - 1])
                 continue;
             path.add(nums[i]);
