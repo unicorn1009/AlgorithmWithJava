@@ -5,6 +5,8 @@ import com.unicorn.Leetcode.TreeNode;
 import com.unicorn.util.TreeUtil;
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * <p>
  * </p>
@@ -13,32 +15,36 @@ import org.junit.jupiter.api.Test;
  * @author Unicorn
  */
 public class CodeTest {
+
+    public AtomicInteger count;
+
     public static void main(String[] args) {
-        TreeNode tree = TreeUtil.getTree(new Integer[]{1, 2, 3, 4, 5, null, 7, 8});
-        TreeUtil.showTree(tree);
+        CodeTest codeTest = new CodeTest();
+        codeTest.count = new AtomicInteger(0);
+        codeTest.m();
+        System.out.println(codeTest.count);
     }
 
+    public void m(){
+        new Thread(()->{
+            for (int i = 0; i < 200000; i++) {
+                m1();
+            }
+        }).start();
 
-    @Test
-    public void test(){
-        int i = 1;
-        i = i++;        // i = 1
-        int j = i++;    // j = 1 , i =2
-        int k = i+++i*i++;  //      2+3*3
-        System.out.println(i);  // 4
-        System.out.println(j);  // 1
-        System.out.println(k);  // 11
+        new Thread(()->{
+            for (int i = 0; i < 100000; i++) {
+                m2();
+            }
+        }).start();
     }
 
-    public static void test1(){
-        String a = "abc";
-        String b = "bbb" + 2 + 1 + 2 + a;
-        System.out.println(b);
+    public void m1(){
+        count.getAndIncrement();
     }
 
-    @Test
-    public void test2(){
-        int i = 1;
-        System.out.println(i+(++i));
+    public void m2(){
+        count.getAndDecrement();
     }
+
 }

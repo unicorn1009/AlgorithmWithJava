@@ -12,7 +12,7 @@ import com.unicorn.util.ListNodeUtil;
  */
 public class Solution0082 {
     public static void main(String[] args) {
-        ListNode node = ListNodeUtil.genListNodeByList(new int[]{1});
+        ListNode node = ListNodeUtil.GenListNodeByList(new int[]{1});
         System.out.println(new Solution0082().deleteDuplicates(node));
     }
     public ListNode deleteDuplicates(ListNode head) {

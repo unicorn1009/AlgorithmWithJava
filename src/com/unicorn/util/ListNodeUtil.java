@@ -2,8 +2,6 @@ package com.unicorn.util;
 
 import com.unicorn.Leetcode.ListNode;
 
-import java.util.List;
-
 /**
  * <p>
  * </p>
@@ -13,16 +11,16 @@ import java.util.List;
  */
 public class ListNodeUtil {
     public static void main(String[] args) {
-        ListNode node = genIncrList(10);
+        ListNode node = GenIncrList(10);
         System.out.println(node);
     }
 
     /**
      * 生成递增链表
      * @param n 链表长度
-     * @return
+     * @return 链表头结点
      */
-    public static ListNode genIncrList(int n){
+    public static ListNode GenIncrList(int n){
         if (n == 0) return null;
         ListNode root = new ListNode(1);
         ListNode node = root;
@@ -34,11 +32,11 @@ public class ListNodeUtil {
     }
 
     /**
-     * 根据给定数组生成链表,可包含null
-     * @param arr
-     * @return
+     * 生成与给定数组顺序一致的单链表
+     * @param arr 数组 如 new int[]{3,2,1}
+     * @return 链表头结点
      */
-    public static ListNode genListNodeByList(int[] arr){
+    public static ListNode GenListNodeByList(int[] arr){
         if (arr.length == 0) return null;
         ListNode head = new ListNode(arr[0]);
         ListNode p = head;
@@ -47,6 +45,43 @@ public class ListNodeUtil {
             p = p.next;
         }
         return head;
+    }
+
+    /**
+     * 反转链表(递归法)
+     * @param head 要反转的链表头结点
+     * @return 反转后链表的头结点
+     */
+    public static ListNode RecurReverseList(ListNode head) {
+
+        if (head == null || head.next == null){
+            return head;
+        }
+        ListNode rev = RecurReverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return rev;
+    }
+
+
+    /**
+     * 反转链表(三指针法, 空间复杂度O(1))
+     * @param head 要反转的链表头结点
+     * @return 反转后链表的头结点
+     */
+    public static ListNode ReverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode pre = null;
+        ListNode cur = head;
+        ListNode back = null;
+        while (cur.next != null){
+            back = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = back;
+        }
+        cur.next = pre;
+        return cur;
     }
 
     /**

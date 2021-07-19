@@ -12,7 +12,7 @@ import com.unicorn.util.ListNodeUtil;
  */
 public class 链表内指定区间反转 {
     public static void main(String[] args) {
-        ListNode node = ListNodeUtil.genIncrList(5);
+        ListNode node = ListNodeUtil.GenIncrList(5);
         reverseBetween(node, 1, 3);
     }
     public static ListNode reverseBetween (ListNode head, int m, int n) {

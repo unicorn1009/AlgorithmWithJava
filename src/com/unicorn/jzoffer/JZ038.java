@@ -15,6 +15,7 @@ public class JZ038 {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(new JZ038().permutation("aac")));
     }
+
     public String[] permutation(String s) {
         int len = s.length();
         Set<String> ans = new HashSet<>();

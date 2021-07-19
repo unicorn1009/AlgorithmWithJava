@@ -17,7 +17,7 @@ import java.util.Deque;
  */
 public class Solution0092 {
     public static void main(String[] args) {
-        ListNode node = ListNodeUtil.genIncrList(5);
+        ListNode node = ListNodeUtil.GenIncrList(5);
         ListNode node1 = reverseBetween(node, 2, 4);
         System.out.println(node1);
     }

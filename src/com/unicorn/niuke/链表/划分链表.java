@@ -12,7 +12,7 @@ import com.unicorn.util.ListNodeUtil;
  */
 public class 划分链表 {
     public static void main(String[] args) {
-        ListNode node = ListNodeUtil.genListNodeByList(new int[]{1, 4, 3, 2, 5, 2});
+        ListNode node = ListNodeUtil.GenListNodeByList(new int[]{1, 4, 3, 2, 5, 2});
         ListNode partition = partition(node, 3);
         System.out.println(partition);
     }

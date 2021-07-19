@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Unicorn
  */
-public class Solution013 {
+public class Solution0013 {
     public List<List<Integer>> pathSum(TreeNode root, int target) {
         // 回溯
         int curSum = 0;
