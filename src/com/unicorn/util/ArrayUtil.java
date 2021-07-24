@@ -24,8 +24,8 @@ public class ArrayUtil {
     }
 
     // 方括号转大括号
-    public static String ArrayConvert(String str){
-        return str.replace('[', '{').replace(']', '}');
+    public static void ArrayConvert(String str){
+        System.out.println(str.replace('[', '{').replace(']', '}'));
     }
 
     /**

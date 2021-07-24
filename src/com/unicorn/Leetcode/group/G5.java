@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class G5 {
     public static void main(String[] args) {
-        System.out.println(ArrayUtil.ArrayConvert("[[2,3],[3,0],[4,1]]"));
+        ArrayUtil.ArrayConvert("[[2,3],[3,0],[4,1]]");
         int[][] ps = new int[][]{{2,3},{2,1}};
         System.out.println(minRecSize1(ps));
 
