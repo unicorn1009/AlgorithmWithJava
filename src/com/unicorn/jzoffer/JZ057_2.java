@@ -13,6 +13,7 @@ import java.util.Arrays;
  *
  * @author Unicorn
  */
+
 public class JZ057_2 {
     public static void main(String[] args) {
         int[][] sequence = new JZ057_2().findContinuousSequence2(15);

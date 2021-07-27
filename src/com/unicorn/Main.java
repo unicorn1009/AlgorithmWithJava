@@ -1,12 +1,23 @@
 package com.unicorn;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
 
     public static void main(String[] args) {
+        ArrayList<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(5);
+        integers.add(3) ;
+        Collections.sort(integers);
+        integers.add(2);
+        Collections.reverse(integers);
+        System.out.println(integers);
 
     }
+
 
     @org.junit.jupiter.api.Test
     public void t2() {
