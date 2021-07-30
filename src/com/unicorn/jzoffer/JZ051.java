@@ -13,13 +13,14 @@ import java.util.Arrays;
  * @author Unicorn
  */
 public class JZ051 {
-    private int res;
     public static void main(String[] args) {
         int[] data = new int[]{3,55, 23, 21};
         System.out.println(Arrays.toString(data));
         System.out.println(new JZ051().reversePairs(data));
         System.out.println(Arrays.toString(data));
     }
+
+    private int res;
 
     public int reversePairs(int[] nums){
         res = 0;

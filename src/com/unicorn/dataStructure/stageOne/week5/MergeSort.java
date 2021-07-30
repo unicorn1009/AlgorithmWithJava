@@ -36,17 +36,20 @@ public class MergeSort {
             merge(arr, left, mid, right, temp);
     }
 
+    // 归并过程
     private void merge(int[] arr, int left, int mid, int right, int[] temp) {
+        // 归并时, 将原数组中需要归并的部分复制到辅助数组中
         System.arraycopy(arr, left, temp, left, right-left+1);  // 优化点
         int i = left, j = mid+1;
         for (int k = left; k <= right; k++) {
+            // 如果左边归并完了, 直接放入右边的元素即可
             if (i > mid){
                 arr[k] = temp[j];
                 j++;
-            }else if (j > right){
+            }else if (j > right){ // 如果右边归并完了, 直接放入左边的元素即可
                 arr[k] = temp[i];
                 i++;
-            }else if (temp[i] <= temp[j]){
+            }else if (temp[i] <= temp[j]){	// 取二者之中较小
                 arr[k] = temp[i];
                 i++;
             }else {

@@ -23,7 +23,7 @@ public class K个一组翻转链表 {
     // 栈
     public static ListNode reverseKGroup(ListNode head, int k) {
         ListNode p = head;
-        ArrayDeque<ListNode> stack = new ArrayDeque<>(k);
+        Deque<ListNode> stack = new ArrayDeque<>(k);
         ListNode pt = new ListNode(-1);
         ListNode ans = pt;
         while (p != null){

@@ -1,4 +1,4 @@
-package com.unicorn.笔试.huawei;
+package com.unicorn.笔试.huawei0721;
 
 import java.util.PriorityQueue;
 import java.util.Scanner;

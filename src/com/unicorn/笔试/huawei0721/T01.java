@@ -1,11 +1,7 @@
-package com.unicorn.笔试.huawei;
-
-import com.unicorn.common.Array;
-import com.unicorn.util.ArrayUtil;
+package com.unicorn.笔试.huawei0721;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Map;
 import java.util.Scanner;
 
 /**
