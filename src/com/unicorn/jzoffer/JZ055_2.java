@@ -23,11 +23,15 @@ public class JZ055_2 {
 
     private int treeHeight(TreeNode node){
         if (node == null) return 0;
-
+        // 计算左子树的高度
         int leftHeight = treeHeight(node.left);
+        // 如果左子树高度为-1, 说明左子树不平衡
         if (leftHeight == -1) return -1;
+        // 计算右子树的高度
         int rightHeight = treeHeight(node.right);
+        // 如果右子树高度为-1, 说明右子树不平衡
         if (rightHeight == -1) return -1;
+        // 如果左子树右子树的高度差不超过1, 则返回最大高度, 超过1则返回-1表示不平衡
         return Math.abs(leftHeight-rightHeight)<=1 ? Math.max(leftHeight, rightHeight)+1 : -1;
     }
 }
