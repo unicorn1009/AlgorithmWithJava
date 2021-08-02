@@ -1,6 +1,4 @@
-package com.unicorn.笔试.阿里2021秋招;
-
-import com.unicorn.util.ArrayUtil;
+package com.unicorn.笔试.阿里巴巴.秋招2021;
 
 import java.util.Arrays;
 import java.util.Scanner;

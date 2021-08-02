@@ -11,14 +11,16 @@ import java.util.Map;
  * @author Unicorn
  */
 public class Solution0001 {
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])){
-                return new int[]{map.get(nums[i]),i};
-            }
-            map.put(target - nums[i], i);
-        }
-        return null;
+    public static void main(String[] args) {
+        int n = fun2(fun1(101))%4;
+        System.out.println(n);
+    }
+
+    public static int fun1(int i){
+        return i <= 1 ? 1:fun1(i-1)+fun1(i-3);
+    }
+
+    public static int fun2(int i){
+        return ((i>>4)|2021)|(((i<<4)|831)>>4);
     }
 }
