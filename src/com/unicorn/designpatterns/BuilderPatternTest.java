@@ -69,6 +69,17 @@ class Computer{
     public void setComputerCase(String computerCase) {
         this.computerCase = computerCase;
     }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "mainBoard='" + mainBoard + '\'' +
+                ", cpu='" + cpu + '\'' +
+                ", memory='" + memory + '\'' +
+                ", hardDisk='" + hardDisk + '\'' +
+                ", computerCase='" + computerCase + '\'' +
+                '}';
+    }
 }
 
 // 抽象的建造者, 定义一些需要进行的步骤

@@ -21,7 +21,6 @@ public class LRU缓存机制 {
 
     }
 
-
     static class LRUCache {
 
         static class DLinkedNode {
@@ -99,7 +98,5 @@ public class LRU缓存机制 {
             node.prev = dummyHead;
             dummyHead.next = node;
         }
-
-
     }
 }

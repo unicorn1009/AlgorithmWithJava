@@ -2,6 +2,10 @@ package com.unicorn;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -11,16 +15,46 @@ import java.util.Map;
  * @author Unicorn
  */
 public class Solution0001 {
-    public static void main(String[] args) {
-        int n = fun2(fun1(101))%4;
-        System.out.println(n);
+    public static void main(String[] args) throws InterruptedException {
+        Solution0001 solution0001 = new Solution0001();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(20, 20, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10), new ThreadPoolExecutor.DiscardPolicy());
+
+        for (int i = 0; i < 40; i++) {
+            threadPoolExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        solution0001.m1();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
+        Thread.sleep(1000);
+        System.out.println("=============");
+        for (int i = 0; i < 40; i++) {
+            threadPoolExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        solution0001.m1();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 
-    public static int fun1(int i){
-        return i <= 1 ? 1:fun1(i-1)+fun1(i-3);
+    public void m1() throws InterruptedException {
+        System.out.println(Thread.currentThread().getName()+":我是任务");
+        Thread.sleep(100);
     }
 
-    public static int fun2(int i){
-        return ((i>>4)|2021)|(((i<<4)|831)>>4);
-    }
+
+
+
+
 }

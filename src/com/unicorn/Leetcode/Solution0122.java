@@ -11,7 +11,8 @@ package com.unicorn.Leetcode;
  */
 public class Solution0122 {
     public static void main(String[] args) {
-        System.out.println(maxProfit(new int[]{7}));
+        System.out.println(maxProfit(new int[]{7,6,4,3,1}));
+        System.out.println(maxProfit2(new int[]{7,6,4,3,1}));
     }
     public static int maxProfit(int[] prices) {
         int days = prices.length;
@@ -24,4 +25,22 @@ public class Solution0122 {
         }
         return dp[days-1][0];
     }
+
+    // 贪心
+    public static int maxProfit2(int[] prices) {
+        int ans = 0;
+        int curMin = prices[0];
+
+        for (int i = 1; i < prices.length; i++) {
+            curMin = Math.min(curMin, prices[i]);
+            if (prices[i] > curMin){
+                // 卖掉
+                ans += prices[i] - curMin;
+                curMin = prices[i];
+            }
+        }
+
+        return ans;
+    }
+
 }

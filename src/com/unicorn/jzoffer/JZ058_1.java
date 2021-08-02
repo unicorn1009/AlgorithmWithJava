@@ -34,4 +34,6 @@ public class JZ058_1 {
         stringBuffer.deleteCharAt(stringBuffer.length()-1);
         return stringBuffer.toString();
     }
+
+
 }
