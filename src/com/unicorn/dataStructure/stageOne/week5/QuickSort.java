@@ -35,6 +35,7 @@ public class QuickSort {
         sort(arr, p+1, right);
     }
 
+    // 对范围[left, right]做分区
     private int partition(int[] arr, int left, int right) {
         // 优化点 : 随机选取枢轴元素. 将选中的枢轴元素交换到最左边
         int p = left + (new Random()).nextInt(right-left+1);

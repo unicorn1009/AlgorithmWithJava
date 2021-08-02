@@ -45,13 +45,14 @@ public class ArrayUtil {
      * 打印二维数组
      */
     public static void printArray2D(int[][] arrs){
-        StringBuilder stringBuilder = new StringBuilder();
+//        StringBuilder stringBuilder = new StringBuilder();
         for (int[] arr : arrs) {
-            stringBuilder.append(Arrays.toString(arr));
-            stringBuilder.append(", ");
+//            stringBuilder.append(Arrays.toString(arr));
+            System.out.println(Arrays.toString(arr));
+//            stringBuilder.append(", ");
         }
-        stringBuilder.deleteCharAt(stringBuilder.length()-2);
-        System.out.println(stringBuilder.toString());
+//        stringBuilder.deleteCharAt(stringBuilder.length()-2);
+//        System.out.println(stringBuilder.toString());
     }
 
     /**
