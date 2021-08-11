@@ -21,7 +21,6 @@ public class ObserverPatternTest {
         System.out.println("-------------");
         subject.removeObserver(task1);
         subject.notifyObservers("zzzzzzzzz");
-
     }
 }
 

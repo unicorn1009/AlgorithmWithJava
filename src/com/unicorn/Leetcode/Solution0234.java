@@ -22,7 +22,41 @@ public class Solution0234 {
         System.out.println(isPalindrome(node1));
     }
 
-    // TODO 反转链表 O(n) 和 O(1)
+    public static boolean isPalindrome1(ListNode head) {
+        if (head.next == null) return true;
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode reverseNode = slow.next;
+        slow.next = null;
+        ListNode reversedHead = reverse(reverseNode);
+        while (reversedHead != null){
+            if (reversedHead.val != head.val){
+                return false;
+            }
+            reversedHead = reversedHead.next;
+            head = head.next;
+        }
+        return true;
+    }
+
+    public static ListNode reverse(ListNode head){
+        if (head == null || head.next == null) return head;
+        ListNode pre = null;
+        ListNode cur = head;
+        ListNode back = null;
+        while (cur.next != null){
+            back = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = back;
+        }
+        cur.next = pre;
+        return cur;
+    }
 
     // 使用额外空间存
     public static boolean isPalindrome(ListNode head) {

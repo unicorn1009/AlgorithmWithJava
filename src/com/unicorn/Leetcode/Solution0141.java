@@ -14,18 +14,18 @@ public class Solution0141 {
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) return false;
         // 至少两个节点
-        ListNode node1 = head;
-        ListNode node2 = head;
+        ListNode slow = head;
+        ListNode fast = head;
         while (true){
-            if (node2 == null || node2.next == null || node2.next.next == null)
+            if (fast.next == null || fast.next.next == null)
                 return false;
             else
-                node2 = node2.next.next;
+                fast = fast.next.next;
 
-            if (node1.val == node2.val)
+            if (slow.val == fast.val)
                 return true;
             else
-                node1 = node1.next;
+                slow = slow.next;
         }
     }
 }

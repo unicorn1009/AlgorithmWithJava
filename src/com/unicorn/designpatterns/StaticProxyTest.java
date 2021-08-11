@@ -23,6 +23,7 @@ public class StaticProxyTest {
     }
 }
 
+// 代理类和被代理类都需要实现该接口
 interface ITeacherDao{
     void teach();
 }

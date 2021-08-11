@@ -14,99 +14,47 @@ import java.util.List;
 public class Solution0079 {
     public static void main(String[] args) {
         char[][] chars = new char[3][3];
-        chars[0] = new char[]{'C','A','A'};
-        chars[1] = new char[]{'A','A','A'};
-        chars[2] = new char[]{'B','C','D'};
+        chars[0] = new char[]{'A','B','C','E'};
+        chars[1] = new char[]{'S','F','C','S'};
+        chars[2] = new char[]{'A','D','E','E'};
 
-        System.out.println(new Solution0079().exist(chars, "AAB"));
+        System.out.println(new Solution0079().exist(chars, "SEE"));
     }
 
     public boolean exist(char[][] board, String word) {
-
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 if (board[i][j] == word.charAt(0)){
-                    boolean[][] flag = new boolean[board.length][board[0].length];
+                    boolean[][] vis = new boolean[board.length][board[0].length];
                     // 找到一个可能的起点
-                    flag[i][j] = true;  // 标记已走过
-                    boolean isOk = dfs(word, 1, new int[]{i, j}, flag, board);
+                    vis[i][j] = true;  // 标记已走过
+                    boolean isOk = dfs(word, 1, i, j, vis, board);
+                    vis[i][j] = false;
                     if (isOk)
                         return true;
                 }
             }
         }
         return false;
-
     }
 
-    private boolean dfs(String word, int depth, int[] location, boolean[][] flag, char[][] board){
+    private final int[] X = {0, 0, -1, 1};
+    private final int[] Y = {-1, 1, 0, 0};
+    private boolean dfs(String word, int depth,int x, int y, boolean[][] vis, char[][] board){
         if (depth == word.length()){
             return true;
         }
-
-        // 遍历周围四个坐标
-        //  1. 上
-        if (location[0] > 0 && board[location[0] - 1][location[1]] == word.charAt(depth) && !flag[location[0] - 1][location[1]]){
-            // 该位置可行
-            int i = location[0] - 1, j = location[1];
-            flag[i][j] = true; // 标记已走过
-            location[0]--;
-            boolean isOk = dfs(word, depth+1, location, flag, board);
-            // 回溯
-            if (!isOk){
-                location[0]++;
-                flag[i][j] = false;
-            }else {
-                return true;
+        for (int i = 0; i < 4; i++) {
+            x = x + X[i];
+            y = y + Y[i];
+            if (x>=0 && x < board.length && y>=0 && y < board[0].length && !vis[x][y] && board[x][y] == word.charAt(depth)){
+                vis[x][y] = true;
+                boolean found = dfs(word, depth+1, x, y, vis, board);
+                if (found) return true;
+                vis[x][y] = false;
             }
-        }
-
-        //  1. 下
-        if (location[0]+1 < board.length && board[location[0] + 1][location[1]] == word.charAt(depth) && !flag[location[0] + 1][location[1]]){
-            // 该位置可行
-            int i = location[0] + 1, j = location[1];
-            flag[i][j] = true; // 标记已走过
-            location[0]++;
-            boolean isOk = dfs(word, depth+1, location, flag, board);
-            // 回溯
-            if (!isOk){
-                location[0]--;
-                flag[i][j] = false;
-            }else {
-                return true;
-            }
-        }
-
-        //  1. 左
-        if (location[1] > 0 && board[location[0]][location[1]-1] == word.charAt(depth) && !flag[location[0]][location[1]-1]){
-            // 该位置可行
-            int i = location[0], j = location[1]-1;
-            flag[i][j] = true; // 标记已走过
-            location[1]--;
-            boolean isOk = dfs(word, depth+1, location, flag, board);
-            // 回溯
-            if (!isOk){
-                location[1]++;
-                flag[i][j] = false;
-            }else {
-                return true;
-            }
-        }
-
-        //  1. 右
-        if (location[1]+1 < board[0].length && board[location[0]][location[1]+1] == word.charAt(depth) && !flag[location[0]][location[1]+1]){
-            // 该位置可行
-            int i = location[0], j = location[1]+1;
-            flag[i][j] = true; // 标记已走过
-            location[1]++;
-            boolean isOk = dfs(word, depth+1, location, flag, board);
-            // 回溯
-            if (!isOk){
-                location[1]--;
-                flag[i][j] = false;
-            }else {
-                return true;
-            }
+            x = x - X[i];
+            y = y - Y[i];
         }
 
         return false;

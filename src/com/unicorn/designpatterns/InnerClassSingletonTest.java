@@ -17,15 +17,12 @@ class InnerClassSingleton{
         private static InnerClassSingleton instance = new InnerClassSingleton();
 
     }
-
     private InnerClassSingleton(){
         // 防止通过反射获取新实例
         if (InnerClassHolder.instance != null){
             throw new RuntimeException("单例模式不允许创建多个实例");
         }
-
     }
-
     public static InnerClassSingleton getInstance(){
         return InnerClassHolder.instance;
     }

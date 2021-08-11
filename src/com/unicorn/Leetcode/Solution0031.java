@@ -17,42 +17,43 @@ import java.util.Arrays;
  */
 public class Solution0031 {
     public static void main(String[] args) {
-        int[] n = new int[]{1,3,2};
+        int[] n = new int[]{1,2,3};
         nextPermutation(n);
         System.out.println(Arrays.toString(n));
     }
+
     public static void nextPermutation(int[] nums) {
-        if (nums.length == 1) return ;
-        // 从尾部向头遍历, 直到遇见的数字减小了
-        int last = -1;
-        int cur = -1;
-        int index1 = -1;
-        int index2 = -1;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            cur = nums[i];
-            if (last <= cur){   // 前大后小, 不用换位置
-                last = cur;
-                continue;
-            }else {             // 遇到第一个变小的, 与后面不比它小的第一个数字换位置
-                index1 = i;
-                for (int j = nums.length - 1; j >= i; j--) {
-                    if (nums[j] > cur){
-                        index2 = j;
-                        break;
-                    }
+        int n = nums.length;
+        // 从后往前找第一个变小的数字
+        int i = n - 2;
+        while (i >= 0 && nums[i] >= nums[i+1]){
+            i--;
+        }
+        // 除了while循环，有两种情况，一是i==-1了， 二是找到了num[i] < num[i+1]
+        if (i >= 0){
+            // 从后往前找第一个比num[i]大的数，与num[i]交换
+            for (int j = n-1; j > i; j--){
+                if (nums[j] > nums[i]){
+                    // 找到了
+                    swap(nums, i, j);
+                    break;
                 }
-                break;
             }
         }
+        // 交换完后，需要把后面一部分整体反转，使后面一部分是最小的
+        reverse(nums, i+1, n-1);
+    }
 
-        if (index1 != -1){  // 需要换位置
-            int temp = nums[index1];
-            nums[index1] = nums[index2];
-            nums[index2] = temp;
-            // 还需要对前面位置后面部分数组进行排序, 其实相当于将后面一部分反转一下
-            Arrays.sort(nums, index1+1,nums.length);
-        }else {
-            Arrays.sort(nums);
+    private static void swap(int[] nums, int i, int j){
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+
+    // 反转数组区间[lo, hi]
+    private static void reverse(int[] nums, int lo, int hi){
+        while (lo < hi){
+            swap(nums, lo++, hi--);
         }
     }
 }

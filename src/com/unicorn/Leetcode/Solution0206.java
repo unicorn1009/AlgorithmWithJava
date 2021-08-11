@@ -15,6 +15,7 @@ public class Solution0206 {
         ListNode newNode = new Solution0206().reverseList(listNode);
         System.out.println(newNode);
     }
+    // 递归反转, 空间O(n)
     public ListNode reverseList(ListNode head) {
 
         if (head == null || head.next == null){
@@ -25,5 +26,22 @@ public class Solution0206 {
         head.next = null;
         return rev;
     }
+
+    // 法二: 三指针, 空间 O(1)
+    public static ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode pre = null;
+        ListNode cur = head;
+        ListNode back = null;
+        while (cur.next != null){
+            back = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = back;
+        }
+        cur.next = pre;
+        return cur;
+    }
+
 
 }

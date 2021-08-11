@@ -1,6 +1,8 @@
 package com.unicorn.niuke.排序;
 
 import com.unicorn.Leetcode.ListNode;
+import com.unicorn.util.ListNodeUtil;
+import com.unicorn.大厂热题.奇升偶降链表;
 
 /**
  * <p>
@@ -12,11 +14,8 @@ import com.unicorn.Leetcode.ListNode;
  * @author Unicorn
  */
 public class 链表的奇偶重排 {
-    public static void main(String[] args) {
 
-    }
-
-    public static ListNode oddEvenList (ListNode head) {
+    public ListNode oddEvenList (ListNode head) {
         if(head == null || head.next == null || head.next.next == null) return head;
         ListNode node1 = head;
         ListNode node2 = head.next;
